@@ -1,0 +1,10 @@
+.stock-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 50px;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgb(90, 90, 90);
+}
