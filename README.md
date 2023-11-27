@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+In the financial industry, clarity is essential. Market Observer emerges as a simple and free web tool. Its purpose: to provide you with a timely, straightforward and accurate view of all your portfolio.
+
+# Getting Started with Market Observer React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
