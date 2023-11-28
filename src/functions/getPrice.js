@@ -1,7 +1,7 @@
-export const getPrice = async (stock) => {
+export const getPrice = async (ticker) => {
   try {
     // Realizar la solicitud a la API usando fetch
-    const respuesta = await fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token=clhqgq1r01qh8ugithpgclhqgq1r01qh8ugithq0');
+    const respuesta = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=clhqgq1r01qh8ugithpgclhqgq1r01qh8ugithq0`);
     // Verificar si la solicitud fue exitosa (código de estado 200)
     if (respuesta.ok) {
       // Convertir la respuesta a formato JSON

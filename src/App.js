@@ -1,11 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import './containers/Home'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import logo from './logo.svg';
 import Home from './containers/Home';
+import AddProduct from './containers/AddProduct'
+import CheckoutSell from './containers/CheckoutSell';
+import Profile from './containers/Profile';
+
 
 function App() {
   return (
     <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/checkout-sell" element={<CheckoutSell />} />
+          <Route path="/add-product" element={<AddProduct />} />          
+        </Routes>
+      </Router>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +36,6 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Home />
     </div>
   );
 }
