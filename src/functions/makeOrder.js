@@ -1,19 +1,18 @@
 import { db } from '../firebase';
-import { doc, setDoc} from "firebase/firestore"
+import { addDoc, collection} from "firebase/firestore"
 
-export const makeOrder = (formatedData) => {
+export const makeOrder = async(formatedData) => {
+  
   try {
     console.log('Adding new order to database')
     const orderData = formatedData
-    setDoc(doc(db, "orders", orderData.id), orderData)
-      .then(() => {
-        console.log("Order registered successfully");
-        // router.push('/success/1')
-      })
-      .catch((error) => {
-        console.error("Error 2 catch", error);
-      });
+    console.log(orderData)
+    try {
+      await addDoc(collection(db, "orders"), orderData);
+    } catch (e) {
+      console.error("Error adding document #2: ", e);
+    }
   } catch (error) {
-    console.error("Error 1 catch", error);
+    console.error("Error adding document #1: ", error);
   }
 } 

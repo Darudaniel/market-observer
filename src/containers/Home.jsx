@@ -1,5 +1,3 @@
-// import LoginButton from '../components/LoginButton'
-// import Button from '../components/Button'
 import '../styles/containers/Home.css'
 import { signInWithGoogle } from '../firebase'
 import Stocks from '../components/Stocks'
@@ -24,7 +22,7 @@ const Home = () => {
             {user ? (
               <div className='home'>
                 <Stocks/>
-                <button className="logout-button" type='button' onClick={handleSignOut}>Cerrar Sesión</button>
+                <button className="logout-button" type='button' onClick={handleSignOut}>Log out</button>
               </div>
             ) : (
               <button onClick={signInWithGoogle} className="google-auth-button">

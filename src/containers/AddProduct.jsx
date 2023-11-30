@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import '../styles/containers/AddProduct.css';
+import { useState } from 'react';
 import { FormControl, Input, InputLabel, FormHelperText, Button } from '@mui/material';
 import getRandomInt from '../functions/getRandomInt';
-import { getPrice } from '../functions/getPrice';
-
+import useRedirect from '../hooks/useRedirect';
+import { makeOrder } from '../functions/makeOrder'
+// import { getPrice } from '../functions/getPrice';
 
 const AddProduct = () =>  {
 
+  const redirectToAnotherPage = useRedirect();
+
+  const currentDate = new Date()
+  
   const setPriceNow = async(ticker) => {
     try {
-      const currentDate = new Date()
-			const productPrice = await getPrice(ticker);
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        "date": currentDate,
-        "priceNow": productPrice
-      }));			
+			// const productPrice = await getPrice(ticker);
+      makeOrder(formData)
+      redirectToAnotherPage('/')
 		} catch (error) {
 			console.error(error + "no se esta agregando la accion");
 		}
@@ -23,9 +24,7 @@ const AddProduct = () =>  {
 
   const [formData, setFormData] = useState({
     "id": getRandomInt(10000, 90000),
-    "date": '',
     "ticker": '',
-    "priceNow": '',
     "buyPrice": '',
     "isOpen": true,
   });
@@ -35,12 +34,12 @@ const AddProduct = () =>  {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id]: value,
+      "date": currentDate
     }));
   };
 
   const handleRegisterBuy = async () => {
     await setPriceNow(formData.ticker)
-    await console.log(formData)
   };
 
   return (
@@ -75,7 +74,6 @@ const AddProduct = () =>  {
       <Button variant="contained" color="success" onClick={handleRegisterBuy}>
         REGISTER BUY
       </Button>
-
     </div>
   )
 }

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 25px;
 }
 
 .form-container {
@@ -11,5 +12,5 @@
   justify-content: space-around;
   align-items: flex-start;
   max-width: 500px;
-  margin-bottom: 30px;
+  margin: 15px 0;
 }
