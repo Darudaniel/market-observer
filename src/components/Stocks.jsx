@@ -1,6 +1,8 @@
+import '../styles/components/Stocks.css'
 import { getPrice } from "../functions/getPrice"
 import { useEffect, useState } from "react"
 import StockCard from "./StockCard"
+import AddButton from "./AddButton"
 // import Loader from "./Loader"
 
 const Stocks = () => {
@@ -56,7 +58,8 @@ const Stocks = () => {
   }, []);
 
 	return (
-		<div>
+		<div className="stocks">
+			<AddButton/>
 			{
 				myStocks.map((stock) => {
 					return(

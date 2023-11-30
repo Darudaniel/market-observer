@@ -7,8 +7,9 @@ import { getAnalytics, logEvent } from "firebase/analytics";
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
 const provider = new GoogleAuthProvider()
+
+export const auth = getAuth(app);
 
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
