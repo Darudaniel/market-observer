@@ -6,10 +6,10 @@
 }
 
 .form-container {
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: start;
-max-width: 500px;
-margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 500px;
+  margin-bottom: 30px;
 }

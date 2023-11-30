@@ -1,4 +1,4 @@
-.home {
+.home, .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,7 +6,7 @@
   min-width: 310px;
 }
 
-.google-auth-button{
+.google-auth-button, .logout-button{
   display: flex;
   justify-content: space-between;
   align-items: center;

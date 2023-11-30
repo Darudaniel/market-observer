@@ -9,31 +9,33 @@ const Home = () => {
 
     const { user } = UserAuth()
 
-    const test = () => {
-        console.log(user)
+    const {logOut} = UserAuth();  
+
+    const handleSignOut = async () => {
+      try {
+        await logOut()
+      } catch (error) {
+        console.log(error)
+      }
     }
 
-
     return (
-        <div className='home'>
-            <button type='button' onClick={test}></button>
-            {user && (
-              <div>
-                <p>Bienvenido, {user.displayName}!</p>
-                <p>ID: {user.uid}</p>
+        <div className='home-container'>
+            {user ? (
+              <div className='home'>
+                <Stocks/>
+                <button className="logout-button" type='button' onClick={handleSignOut}>Cerrar Sesión</button>
               </div>
-            )}
-            {/* <LoginButton />
-            <Button /> */}
-            <button onClick={signInWithGoogle} className="google-auth-button">
+            ) : (
+              <button onClick={signInWithGoogle} className="google-auth-button">
                 <img 
                   src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
                   alt="new"
-									className='google-icon'
+                  className='google-icon'
                 />
                 Sign in with google
-            </button>
-            <Stocks/>
+              </button>
+            )}
         </div>
     )
 }
