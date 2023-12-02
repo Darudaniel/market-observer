@@ -1,0 +1,11 @@
+.check-container .check {
+  width: 180px;
+  height: 180px;
+  padding: 30px;
+}
+
+.success-message {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}

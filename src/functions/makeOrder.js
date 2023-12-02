@@ -6,7 +6,6 @@ export const makeOrder = async(formatedData) => {
   try {
     console.log('Adding new order to database')
     const orderData = formatedData
-    console.log(orderData)
     try {
       await addDoc(collection(db, "orders"), orderData);
     } catch (e) {

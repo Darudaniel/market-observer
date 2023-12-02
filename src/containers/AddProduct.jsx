@@ -16,7 +16,7 @@ const AddProduct = () =>  {
     try {
 			// const productPrice = await getPrice(ticker);
       makeOrder(formData)
-      redirectToAnotherPage('/')
+      redirectToAnotherPage('/success')
 		} catch (error) {
 			console.error(error + "no se esta agregando la accion");
 		}

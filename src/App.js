@@ -4,11 +4,12 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import Home from './containers/Home';
 import AddProduct from './containers/AddProduct'
 import CheckoutSell from './containers/CheckoutSell';
 import Profile from './containers/Profile';
+import Success from './containers/Success';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/success" element={<Success />} />          
           <Route path="/checkout-sell" element={<CheckoutSell />} />
           <Route path="/add-product" element={<AddProduct />} />          
         </Routes>

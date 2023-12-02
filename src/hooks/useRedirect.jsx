@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 const useRedirect = () => {
   const navigate = useNavigate();
 
-  const redirectToAnotherPage = () => {
-    navigate('/');
+  const redirectToAnotherPage = (route) => {
+    navigate(route);
   };
 
   return redirectToAnotherPage;
