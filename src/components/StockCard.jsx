@@ -1,11 +1,10 @@
 import '../styles/components/StockCard.css'
 import VariableAndValue from './VariableAndValue'
 
-const StockCard = ({ data }) => {
-  
+const StockCard = ({ data, priceNow }) => {
+    
   const ticker = data.ticker
   const buyPrice = data.buyPrice
-  const priceNow = data.priceNow
 
   return (
     <div className='stock-card'>

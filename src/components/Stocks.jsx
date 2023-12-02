@@ -1,69 +1,75 @@
 import '../styles/components/Stocks.css'
 import { getPrice } from "../functions/getPrice"
 import { useEffect, useState } from "react"
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase'
 import StockCard from "./StockCard"
 import AddButton from "./AddButton"
-// import Loader from "./Loader"
+import { Button } from '@mui/material'
 
 const Stocks = () => {
 
-	// const [isLoading, setIsLoading] = useState(true)
-	
-		// const example = [
-		// 	{
-		// 		id: 1223,
-		// 		ticker: "VOO",
-		// 		name: "Vanguard SP500 ETF",
-		// 		price_now: 400,
-		// 		buy_price: 400,
-		// 	},
-		// 	{
-		// 		id: 1583,
-		// 		ticker: "BTC",
-		// 		name: "Bitcoin",
-		// 		price_now: 93000,
-		// 		buy_price: 68000,
-		// 	}
-		// ]
-	
-	const [myStocks, setMyStocks] = useState([])
+	const [orders, setOrders] = useState([])
 
-	const addStock = (id, date, ticker, priceNow, buyPrice, sellPrice) => {
-		setMyStocks([
-			{
-				id: id,
-				date: date,
-				ticker: ticker,
-				priceNow: priceNow,
-				buyPrice: buyPrice,
-			}	
-		]);
-	}
+	async function processProducts() {
+    try {
+      const updatedOrders = await Promise.all(
+        orders.map(async (order) => {
+          const productPrice = await getPrice(order.ticker);
+          if (productPrice !== null) {
+            return {
+              ...order,
+              priceNow: productPrice,
+            };
+          }
+          return order; 
+        })
+      );
+
+      
+      setOrders(updatedOrders);
+
+    } catch (error) {
+      console.error(`Error al procesar las órdenes: ${error.message}`);
+    }
+  }
 	
 	const getMyStocks = async() => {
 		try {
-			const applePrice = await getPrice("AAPL");
-			addStock(12345, "AAPL", "Apple Inc.", applePrice, 50)
+
+		
+			const ordersCollectionRef = collection(db, "orders")
+			const data = await getDocs(ordersCollectionRef)
+			await setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+			
 			
 		} catch (error) {
 			console.error(error + "no se esta agregando la accion");
 		}
 	}
+
+	
 	
 	useEffect(() => {
-		setTimeout(() => {
-			getMyStocks()
-		}, 1000);
-		
+		getMyStocks()		
   }, []);
+	
+	const updatePrices = () => {
+		processProducts();
+	}
 
 	return (
 		<div className="stocks">
+			<Button variant="contained" color="success" onClick={updatePrices}>
+				Update Prices
+      </Button>
+
 			<AddButton/>
 			{
-				myStocks.map((stock) => {
+				orders.map((order) => {
+					
 					return(
-						<StockCard key={stock.id} data={stock} />
+						<StockCard key={order.id} data={order} priceNow={order.priceNow} />
 					)
 				})
 			}
