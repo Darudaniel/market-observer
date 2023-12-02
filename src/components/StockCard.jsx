@@ -8,9 +8,11 @@ const StockCard = ({ data, priceNow }) => {
 
   return (
     <div className='stock-card'>
-      <h3>{ticker}</h3>
-      <VariableAndValue variable="Buy" value={buyPrice} />
-      <VariableAndValue variable="Now" value={priceNow} />  
+      <h3>{ticker.toUpperCase()}</h3>
+      <div className='variables--container'>
+        <VariableAndValue variable="Buy" value={buyPrice} />
+        <VariableAndValue variable="Now" value={priceNow} />  
+      </div>
     </div>
   )
 }

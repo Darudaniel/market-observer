@@ -8,3 +8,7 @@
   border-radius: 10px;
   box-shadow: 0 0 12px rgb(90, 90, 90);
 }
+.variables--container {
+  display: flex;
+  justify-content: space-between;
+}

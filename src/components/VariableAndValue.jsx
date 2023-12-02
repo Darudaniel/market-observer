@@ -1,6 +1,8 @@
+import ('../styles/components/VariableAndValue.css')
+
 const VariableAndValue = ({ variable, value }) => {
   return(
-    <div>
+    <div className='variables-container'>
       <p>{variable}</p>
       <p>{value}</p>
     </div>
