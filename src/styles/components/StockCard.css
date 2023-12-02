@@ -8,7 +8,16 @@
   border-radius: 10px;
   box-shadow: 0 0 12px rgb(90, 90, 90);
 }
+
 .variables--container {
   display: flex;
   justify-content: space-between;
+}
+
+.green-card {
+  background: linear-gradient(to right, #76e07e, #42e24d);
+}
+
+.red-card {
+  background: linear-gradient(to right, #ee817c, #cf4b44)
 }

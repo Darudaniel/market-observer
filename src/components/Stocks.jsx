@@ -12,13 +12,18 @@ const Stocks = () => {
 	const [orders, setOrders] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 
-	const compareByPriceDifference = (a, b) => {
-		const priceNowA = a.priceNow;
-		const priceBuyA = a.buyPrice;
-		const priceNowB = b.priceNow;
-		const priceBuyB = b.buyPrice;
-		return Math.abs(priceNowB - priceBuyB) - Math.abs(priceNowA - priceBuyA);
-	};
+	function compareByPercentage(a, b) {
+		const percentageA = parseFloat(a.percentage);
+		const percentageB = parseFloat(b.percentage);
+	
+		if (percentageA < percentageB) {
+			return 1;
+		}
+		if (percentageA > percentageB) {
+			return -1;
+		}
+		return 0;
+	}
 
 	async function processProducts() {
 		try {
@@ -27,16 +32,18 @@ const Stocks = () => {
 				orders.map(async (order) => {
 					const productPrice = await getPrice(order.ticker);
           if (productPrice !== null) {
+						const percentage = ((productPrice - order.buyPrice) / order.buyPrice) * 100;
 						return {
 							...order,
-              priceNow: productPrice,
-            };
-          }
+							priceNow: productPrice,
+							percentage: percentage.toFixed(2), // Round the percentage to two decimal places
+						};
+					}
           return order;
         })
 				);
 
-				const sortedOrders = updatedOrders.sort(compareByPriceDifference)
+				const sortedOrders = updatedOrders.sort(compareByPercentage);
 
 				setOrders(sortedOrders);
 				setIsLoading(false)
