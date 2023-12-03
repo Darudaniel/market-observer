@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/235.93d8fe3b.chunk.css","mappings":"AAAA,qBAEE,iBAAkB,CADlB,cAEF","sources":["styles/components/VariableAndValue.css"],"sourcesContent":[".variables-container{\n  min-width: 50px;\n  margin: 0 0 0 20px;\n}"],"names":[],"sourceRoot":""}

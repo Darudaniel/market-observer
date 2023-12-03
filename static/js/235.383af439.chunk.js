@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmarket_observer=self.webpackChunkmarket_observer||[]).push([[235],{1235:(e,r,s)=>{s.r(r),s.d(r,{default:()=>k});const k={}}}]);
+//# sourceMappingURL=235.383af439.chunk.js.map
