@@ -1,16 +1,21 @@
 import '../styles/components/Stocks.css'
 import { getPrice } from "../functions/getPrice"
 import { useEffect, useState } from "react"
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase'
 import StockCard from "./StockCard"
 import AddButton from "./AddButton"
 import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext'
 
 const Stocks = () => {
-
+	
 	const [orders, setOrders] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	
+	const { user } = UserAuth()
+  const userId = user.uid
 
 	function compareByPercentage(a, b) {
 		const percentageA = parseFloat(a.percentage);
@@ -55,27 +60,30 @@ const Stocks = () => {
 
 	const getMyStocks = async() => {
 		try {
-
-
+			
 			const ordersCollectionRef = collection(db, "orders")
-			const data = await getDocs(ordersCollectionRef)
-			await setOrders(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+		
+			const q = query(ordersCollectionRef, where("userId", "==", userId));
+			const data = await getDocs(q)
 
+			const filteredOrders = data.docs
+      .filter(doc => doc.data().isOpen === true)
+      .map(doc => ({ ...doc.data(), id: doc.id }));
+
+    setOrders(filteredOrders);
 
 		} catch (error) {
 			console.error(error + "no se esta agregando la accion");
 		}
 	}
 
-
-
-	useEffect(() => {
-		getMyStocks()
-  }, []);
-
 	const updatePrices = () => {
 		 processProducts();
 	}
+	
+	useEffect(() => {    		
+		getMyStocks()
+  }, [])
 
 	return (
 		<div className="stocks">
@@ -83,16 +91,23 @@ const Stocks = () => {
 				Update Prices
 			</Button>
 			{isLoading ? (
-        <p>Cargando...</p>
+        <p className='loading-message'>Update prices please.</p>
       ) : (
         <div>
-
 					<AddButton/>
-					{
-						orders.map((order) => (
-							<StockCard key={order.id} data={order} priceNow={order.priceNow} />
-						))
-					}
+					{orders.length < 1 ? (
+						// Render when orders.length is greater than 1
+						<p>You have no open orders.</p>
+					) : (
+						// Render when orders.length is not greater than 1
+						<>
+							{orders.map((order) => (
+								<Link to={`/sell/${order.id}`} style={{ textDecoration: 'none' }} key={order.id}>
+									<StockCard data={order} priceNow={order.priceNow} />
+								</Link>
+							))}
+						</>
+					)}
         </div>
       )}
 		</div>

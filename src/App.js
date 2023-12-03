@@ -7,9 +7,8 @@ import {
 // import logo from './logo.svg';
 import Home from './containers/Home';
 import AddProduct from './containers/AddProduct'
-import CheckoutSell from './containers/CheckoutSell';
-import Profile from './containers/Profile';
 import Success from './containers/Success';
+import Sell from './containers/Sell';
 
 
 function App() {
@@ -17,11 +16,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route element={<Home/>} />
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="*" element={<Home/>} />
           <Route path="/success" element={<Success />} />          
-          <Route path="/checkout-sell" element={<CheckoutSell />} />
-          <Route path="/add-product" element={<AddProduct />} />          
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/sell/:orderId" element={<Sell />} />          
         </Routes>
       </Router>
       {/* <header className="App-header">

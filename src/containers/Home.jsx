@@ -13,7 +13,7 @@ const Home = () => {
       try {
         await logOut()
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     }
 
@@ -25,14 +25,20 @@ const Home = () => {
                 <button className="logout-button" type='button' onClick={handleSignOut}>Log out</button>
               </div>
             ) : (
-              <button onClick={signInWithGoogle} className="google-auth-button">
-                <img 
-                  src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
-                  alt="new"
-                  className='google-icon'
-                />
-                Sign in with google
-              </button>
+              
+              <div className='login'>
+                <div className='login-message-container'>
+                  <h2 className='login-message'>Inicia sesion con Google para comenzar</h2>
+                </div>
+                <button onClick={signInWithGoogle} className="google-auth-button">
+                  <img 
+                    src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png"
+                    alt="new"
+                    className='google-icon'
+                  />
+                  Sign in with google
+                </button>
+              </div>
             )}
         </div>
     )

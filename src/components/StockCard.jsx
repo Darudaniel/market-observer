@@ -19,7 +19,7 @@ const StockCard = ({ data, priceNow }) => {
 
   return (
     <div className={`stock-card ${cardClassName}`}>
-      <h3>{ticker.toUpperCase()}</h3>
+      <h3 className='stock-ticker'>{ticker.toUpperCase()}</h3>
       <div className='variables--container'>
         <VariableAndValue variable="Buy" value={buyPrice} />
         <VariableAndValue variable="Now" value={priceNow} />  

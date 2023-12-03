@@ -4,7 +4,6 @@ import { addDoc, collection} from "firebase/firestore"
 export const makeOrder = async(formatedData) => {
   
   try {
-    console.log('Adding new order to database')
     const orderData = formatedData
     try {
       await addDoc(collection(db, "orders"), orderData);

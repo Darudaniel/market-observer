@@ -1,4 +1,8 @@
 .stocks {
   width: 290px;
-  padding: 20px 0;
+  margin: 30px 0;
+}
+
+.loading-message {
+  margin: 35px 0 10px 0;
 }

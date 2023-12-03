@@ -4,9 +4,12 @@ import { FormControl, Input, InputLabel, FormHelperText, Button } from '@mui/mat
 import getRandomInt from '../functions/getRandomInt';
 import useRedirect from '../hooks/useRedirect';
 import { makeOrder } from '../functions/makeOrder'
-// import { getPrice } from '../functions/getPrice';
+import { UserAuth } from '../context/AuthContext';
 
 const AddProduct = () =>  {
+
+  const { user } = UserAuth()
+  const userId = user.uid
 
   const redirectToAnotherPage = useRedirect();
 
@@ -14,7 +17,6 @@ const AddProduct = () =>  {
   
   const setPriceNow = async(ticker) => {
     try {
-			// const productPrice = await getPrice(ticker);
       makeOrder(formData)
       redirectToAnotherPage('/success')
 		} catch (error) {
@@ -27,6 +29,7 @@ const AddProduct = () =>  {
     "ticker": '',
     "buyPrice": '',
     "isOpen": true,
+    "userId": userId,
   });
 
   const handleInputChange = (e) => {
@@ -34,7 +37,7 @@ const AddProduct = () =>  {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id]: value,
-      "date": currentDate
+      "buyDate": currentDate
     }));
   };
 

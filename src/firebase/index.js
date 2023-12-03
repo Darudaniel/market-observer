@@ -17,7 +17,7 @@ export const signInWithGoogle = () => {
       console.log('Signed')
     })
     .catch((error) => {
-      console.log(error)
+      console.error(error)
     })
   }
 export const db = getFirestore(app);

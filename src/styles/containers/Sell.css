@@ -1,0 +1,20 @@
+.sell {
+  padding: 40px 0;
+}
+
+.prices-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 30px 0;
+}
+
+.price--variable {
+  display: flex;
+  margin: 10px;
+}
+
+.price--variable h3 {
+  padding: 0 20px;
+}
