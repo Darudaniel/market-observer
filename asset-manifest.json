@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/market-observer/static/css/main.c0362bd4.css",
+    "main.css": "/market-observer/static/css/main.33dbe126.css",
     "main.js": "/market-observer/static/js/main.d1dd5a7a.js",
     "static/css/235.93d8fe3b.chunk.css": "/market-observer/static/css/235.93d8fe3b.chunk.css",
     "static/js/235.383af439.chunk.js": "/market-observer/static/js/235.383af439.chunk.js",
     "static/js/787.75339314.chunk.js": "/market-observer/static/js/787.75339314.chunk.js",
     "index.html": "/market-observer/index.html",
-    "main.c0362bd4.css.map": "/market-observer/static/css/main.c0362bd4.css.map",
+    "main.33dbe126.css.map": "/market-observer/static/css/main.33dbe126.css.map",
     "main.d1dd5a7a.js.map": "/market-observer/static/js/main.d1dd5a7a.js.map",
     "235.93d8fe3b.chunk.css.map": "/market-observer/static/css/235.93d8fe3b.chunk.css.map",
     "235.383af439.chunk.js.map": "/market-observer/static/js/235.383af439.chunk.js.map",
     "787.75339314.chunk.js.map": "/market-observer/static/js/787.75339314.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0362bd4.css",
+    "static/css/main.33dbe126.css",
     "static/js/main.d1dd5a7a.js"
   ]
 }
