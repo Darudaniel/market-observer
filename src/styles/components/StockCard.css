@@ -6,7 +6,7 @@
   padding: 20px 20px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 12px rgb(90, 90, 90);
+  box-shadow: 0 0 8px rgb(90, 90, 90);
   color: var(--dark-color);
 }
 
