@@ -1,10 +1,11 @@
 const Terms = () => {
   return (
     <div className="Terms">
+      <h2>
+        Terms and Conditions
+      </h2>
       <p>
-        Terms and Conditions of Use for the Financial Price Monitoring Application:
-
-        Please carefully read the following terms and conditions before using the financial price monitoring application ("Market Oberver"). By accessing and using the Application, you agree to be bound by these terms and conditions.
+        Please carefully read the following terms and conditions before using the financial price monitoring application ("Mantis View"). By accessing and using the Application, you agree to be bound by these terms and conditions.
 
         1. Permitted Use:
 
@@ -24,7 +25,7 @@ const Terms = () => {
 
         5. Privacy:
 
-        We respect your privacy. The Application does not collect or store personally identifiable information about users. However, the use of the Application may be subject to the Privacy Policy, available [link to privacy policy].
+        We respect your privacy. The Application does not collect or store personally identifiable information about users. However, the use of the Application may be subject to the Privacy Policy, available [mantisview.net/privacy].
 
         6. Updates and Changes:
 
@@ -33,10 +34,6 @@ const Terms = () => {
         7. Termination of Use:
 
         We reserve the right to block or terminate a user's access to the Application at any time and for any reason, without prior notice.
-
-        8. Applicable Law:
-
-        These terms and conditions are governed by the laws of [country or jurisdiction], and any dispute shall be subject to the exclusive jurisdiction of the courts of [city, state, or country].
 
         By using the Application, the user confirms that they have read, understood, and agreed to these terms and conditions. If you do not agree with any of these terms, we urge you not to use the Application.
       </p>
