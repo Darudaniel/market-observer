@@ -28,7 +28,7 @@ const Home = () => {
               
               <div className='login'>
                 <div className='login-message-container'>
-                  <h2 className='login-message'>Inicia sesion con Google para comenzar</h2>
+                  <h2 className='login-message'>Welcome to Mantisview please join with Google</h2>
                 </div>
                 <button onClick={signInWithGoogle} className="google-auth-button">
                   <img 

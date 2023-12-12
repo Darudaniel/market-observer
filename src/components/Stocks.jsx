@@ -97,7 +97,7 @@ const Stocks = () => {
 					<AddButton/>
 					{orders.length < 1 ? (
 						// Render when orders.length is greater than 1
-						<p>You have no open orders.</p>
+						<p className='loading-message'>You have no open orders.</p>
 					) : (
 						// Render when orders.length is not greater than 1
 						<>
