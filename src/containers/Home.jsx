@@ -2,6 +2,7 @@ import '../styles/containers/Home.css'
 import { signInWithGoogle } from '../firebase'
 import Stocks from '../components/Stocks'
 import { UserAuth } from '../context/AuthContext'
+import logo from '../logo.png'
 
 const Home = () => {
 
@@ -27,6 +28,9 @@ const Home = () => {
             ) : (
               
               <div className='login'>
+                <div className='logo-container'> 
+                  <img src={logo} alt="Logo" className='logo-img'/>
+                </div>
                 <div className='login-message-container'>
                   <h2 className='login-message'>Welcome to Mantisview please join with Google</h2>
                 </div>
